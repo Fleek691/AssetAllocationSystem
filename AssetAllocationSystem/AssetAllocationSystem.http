@@ -1,0 +1,6 @@
+@AssetAllocationSystem_HostAddress = http://localhost:5047
+
+GET {{AssetAllocationSystem_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
