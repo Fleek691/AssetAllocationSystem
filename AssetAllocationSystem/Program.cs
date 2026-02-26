@@ -1,5 +1,6 @@
 using AssetAllocationSystem.Data;
 using AssetAllocationSystem.Helpers;
+using AssetAllocationSystem.Middleware;
 using AssetAllocationSystem.Services;
 using AssetAllocationSystem.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -16,6 +17,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddScoped<JwtHelper>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IAssetService, AssetService>();
+builder.Services.AddScoped<IAssignmentService, AssignmentService>();
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -83,6 +85,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseMiddleware<ExceptionMiddleware>();
 app.UseAuthentication();
 app.UseAuthorization();
 
