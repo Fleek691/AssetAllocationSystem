@@ -1,3 +1,5 @@
 <Solution>
+  <Project Path="AssetAllocationSystem.BLL/AssetAllocationSystem.BLL.csproj" />
+  <Project Path="AssetAllocationSystem.DAL/AssetAllocationSystem.DAL.csproj" />
   <Project Path="AssetAllocationSystem/AssetAllocationSystem.csproj" />
 </Solution>

@@ -1,5 +1,5 @@
-﻿using AssetAllocationSystem.DTOs;
-using AssetAllocationSystem.Services.Interfaces;
+﻿using AssetAllocationSystem.BLL.Interfaces;
+using AssetAllocationSystem.BLL.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AssetAllocationSystem.Controllers

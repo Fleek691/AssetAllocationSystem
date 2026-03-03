@@ -1,5 +1,5 @@
-﻿using AssetAllocationSystem.DTOs;
-using AssetAllocationSystem.Services.Interfaces;
+﻿using AssetAllocationSystem.BLL.Interfaces;
+using AssetAllocationSystem.BLL.DTOs;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;

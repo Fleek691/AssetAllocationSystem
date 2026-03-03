@@ -1,8 +1,10 @@
-using AssetAllocationSystem.Data;
-using AssetAllocationSystem.Helpers;
+using AssetAllocationSystem.BLL.Interfaces;
+using AssetAllocationSystem.BLL.Services;
+using AssetAllocationSystem.BLL.Helpers;
+using AssetAllocationSystem.DAL.Data;
+using AssetAllocationSystem.DAL.Interfaces;
+using AssetAllocationSystem.DAL.Repositories;
 using AssetAllocationSystem.Middleware;
-using AssetAllocationSystem.Services;
-using AssetAllocationSystem.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -14,6 +16,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Register DAL Repositories
+builder.Services.AddScoped<IAssetRepository, AssetRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IAssetAssignmentRepository, AssetAssignmentRepository>();
+
+// Register BLL Services
 builder.Services.AddScoped<JwtHelper>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IAssetService, AssetService>();
